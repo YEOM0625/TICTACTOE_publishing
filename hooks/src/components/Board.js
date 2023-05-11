@@ -50,6 +50,11 @@ const Board = () => {
 
    const handleClick = (i) => {
         const newSquares = squares.slice();
+
+        if(calculateWinner(newSquares) || squares[i]){
+            return;
+        }// 승자가 결정되면 다시 눌리지 않게.
+
         newSquares[i] = xIsNext ? 'X' : 'O';
         setsquares(newSquares);
         setxIsNext(prev => !prev); 
