@@ -5,8 +5,8 @@ import { useState } from 'react';
   
 function App() {
 
-  const [history, setHistory] = useState([{squares: Array(9).fill(null)}])
-  const [xIsNext, setxIsNext] = useState(true);
+  const [history, setHistory] = useState([{squares: Array(9).fill(null)}]);
+  const [xIsNext, setXIsNext] = useState(true);
 
   const calculateWinner = (squares) => {
     const lines = [
@@ -34,7 +34,7 @@ function App() {
   }
 
   const current = history[history.length-1]; // index가 0부터 시작이기 때문에 -1 해주기
-  const winner = calculateWinner(squares);
+  const winner = calculateWinner(current.squares);
 
   let status;
   if(winner){
@@ -51,8 +51,8 @@ function App() {
     }
 
     newSquares[i] = xIsNext ? 'X' : 'O';
-    setHistory([...history, {squares: newSquares}])
-    setxIsNext[prev => !prev]; 
+    setHistory([...history, {squares: newSquares}]);
+    setXIsNext(prev => !prev); 
   }
   
 
