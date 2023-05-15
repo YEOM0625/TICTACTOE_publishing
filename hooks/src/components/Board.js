@@ -5,19 +5,6 @@ import "./Board.css";
 
 
 const Board = () => {
-    
-  const [squares, setsquares] = useState(Array(9).fill(null))
-  const [xIsNext, setxIsNext] = useState(true);
-
-  
-
-  let status;
-  if(winner){
-    status = 'Winner: ' + winner;
-  } else{
-    status = `Next Player: ${xIsNext ? 'X' : 'O'}`;
-  }
-  
 
   // const status = `Next player: ${xIsNext ? 'X': 'O'}`; // ' 가 아니라 `
 

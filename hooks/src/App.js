@@ -1,8 +1,8 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Board from './components/Board';
 import { useState } from 'react';
-
+  
 function App() {
 
   const [history, sethistory] = useState([{squares: Array(9).fill(null)}])
@@ -35,6 +35,13 @@ function App() {
 
   const current = history[history.length-1]; // index가 0부터 시작이기 때문에 -1 해주기
   const winner = calculateWinner(squares);
+
+  let status;
+  if(winner){
+    status = 'Winner: ' + winner;
+  } else{
+    status = `Next Player: ${xIsNext ? 'X' : 'O'}`;
+  }
 
   
 
