@@ -68,7 +68,7 @@ function App() {
     'Go to game start';
     return(
       <li key ={move}> 
-        <button onClick={()=>jumpTo(move)}>{desc}</button>
+        <button className='move-button' onClick={()=>jumpTo(move)}>{desc}</button>
       </li>
     )// 리스트들에게 고유한 key 값을 주면 에러(unique "key" prop.)가 해결됨. move는 history 배열의 index값.
 })
@@ -85,7 +85,7 @@ function App() {
       </div>
       <div className="game-info">
       <div className='status'>{status}</div>
-      <ol>{moves}</ol>
+      <ol style={{listStyle: 'none'}}>{moves}</ol>
       </div>
       
     </div>
