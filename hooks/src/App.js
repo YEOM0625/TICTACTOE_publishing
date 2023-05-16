@@ -7,6 +7,7 @@ function App() {
 
   const [history, setHistory] = useState([{squares: Array(9).fill(null)}]);
   const [xIsNext, setXIsNext] = useState(true);
+  const [stepNumber, setStepNumber] = useState(0);
 
   const calculateWinner = (squares) => {
     const lines = [
@@ -33,7 +34,7 @@ function App() {
     return null;
   }
 
-  const current = history[history.length-1]; // index가 0부터 시작이기 때문에 -1 해주기
+  const current = history[stepNumber]; // index가 0부터 시작이기 때문에 -1 해주기
   const winner = calculateWinner(current.squares);
 
   let status;
@@ -45,14 +46,19 @@ function App() {
 
 
   const handleClick = (i) => {
-    const newSquares = current.squares.slice();
+    const newHistory = history.slice(0, stepNumber + 1);
+    const newCurrent = newHistory[newHistory.length -1];
+    const newSquares = newCurrent.squares.slice();
+
     if(calculateWinner(newSquares) || newSquares[i]) {
       return;
-    }
+    }// setHistory를 이용해서 그 전 과정은 지워주고 다시 선택 된 곳으로 돌아간다.
 
     newSquares[i] = xIsNext ? 'X' : 'O';
-    setHistory([...history, {squares: newSquares}]);
+    setHistory([...newHistory, {squares: newSquares}]);
     setXIsNext(prev => !prev); 
+
+    setStepNumber(newHistory.length);
   }
   
 
@@ -62,10 +68,15 @@ function App() {
     'Go to game start';
     return(
       <li key ={move}> 
-        <button>{desc}</button>
+        <button onClick={()=>jumpTo(move)}>{desc}</button>
       </li>
     )// 리스트들에게 고유한 key 값을 주면 에러(unique "key" prop.)가 해결됨. move는 history 배열의 index값.
 })
+
+  const jumpTo = (step) => {
+    setStepNumber(step);
+    setXIsNext((step % 2) === 0);
+  }
 
   return (
     <div className="game">
