@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/TICTACTOE_publishing/static/css/main.f7df32cd.css",
+    "main.js": "/TICTACTOE_publishing/static/js/main.11315275.js",
+    "static/js/787.76d73af4.chunk.js": "/TICTACTOE_publishing/static/js/787.76d73af4.chunk.js",
+    "index.html": "/TICTACTOE_publishing/index.html",
+    "main.f7df32cd.css.map": "/TICTACTOE_publishing/static/css/main.f7df32cd.css.map",
+    "main.11315275.js.map": "/TICTACTOE_publishing/static/js/main.11315275.js.map",
+    "787.76d73af4.chunk.js.map": "/TICTACTOE_publishing/static/js/787.76d73af4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f7df32cd.css",
+    "static/js/main.11315275.js"
+  ]
+}
